@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input">
+    <button id="sub" onclick="sub()"> Sub</button>
+    <p id="demo"></p>
+</body>
+<script>
+    function sub() {
+        var agenum = parseInt(document.getElementById("input").value);
+        var result;
+
+        if (agenum >= 90 && agenum <= 100) {
+            result = "Ticket price = 30";
+        } else if (agenum >= 80 && agenum < 90) {
+            result = "Your ticket price = 25";
+        } else if (agenum >= 70 && agenum < 80) {
+            result = "Your ticket price is 20";
+        } else if (agenum >= 60 && agenum < 70) {
+            result = "Your price is 15";
+        } else if (agenum >= 50 && agenum < 60) {
+            result = "Your price is 10";
+        } else if (agenum >= 40 && agenum < 50) {
+            result = "Your price is 5";
+        } else {
+            result = "Your price is 0";
+        }
+
+        document.getElementById("demo").innerHTML = result;
+    }
+</script>
+</html>

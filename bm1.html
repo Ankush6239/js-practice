@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="height" id="height">
+    <input type="text" placeholder="weight" id="weight">
+    <button onclick="Bmi()"> Bmi Calculate</button>
+    <!-- <input type="text" placeholder="result" id="result"> -->
+    <p id="resulta"></p>
+</body>
+<script>
+    function Bmi(){
+        var height = document.getElementById("height").value;
+        var weight = document.getElementById ("weight").value;
+        var bmi = weight / height * height;
+        var result;
+       if(bmi <= 18.5){
+        result = "under weight";
+       } else if( bmi <= 10.5){
+          result = " weight normal";
+       }else{
+          result = "over weight" 
+       }
+       document.getElementById("resulta").innerHTML= result;
+    }
+</script>
+</html>

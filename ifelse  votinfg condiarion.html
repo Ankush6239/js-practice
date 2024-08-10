@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="demo">
+<button onclick="votecalcu()">vote</button>
+<p id="demo2"></p>
+</body>
+<script>
+    function votecalcu(){
+        let age= document.getElementById("demo").value;
+        let votingage= 18;
+        let result;
+        if(age>=votingage){
+        //   let votingage= "you are voting";
+          result = "you are voting";
+
+        }else{
+            result = "you are not voting"
+            // result = votinage;
+        }
+        document.getElementById("demo2").innerHTML=result;
+    }
+</script>
+</html>

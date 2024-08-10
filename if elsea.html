@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <button id="sub" onclick="sub()"> Sub</button>
+    <p id="demo"></p>
+</body>
+<script>
+   function sub(){
+    var num = document.getElementById("input").value;
+    var result;
+    if(num===100){
+        result = "you are very good"
+    }else if (num >= 90 && num <= 95) {
+            result = "your grade A"
+    }else if (num >= 80 ){
+        result = "your grade B"
+    }else if (num >=60){
+        result = "your grade c"
+    }else if (num >= 50){
+        result = "your grade D"
+    }else if (num >40){
+        result = "your grace e"
+    }else(
+        result = "gandu tu faill ho geya ja kahi mra ab"
+    ) 
+    document.getElementById("demo").innerHTML=result;
+   }
+</script>
+</html>

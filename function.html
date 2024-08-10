@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.calculator {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 320px;
+    width: 100%;
+}
+
+.display {
+    background-color: #333;
+    color: white;
+    font-size: 2em;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: right;
+    margin-bottom: 10px;
+    min-height: 40px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.button {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 20px;
+    font-size: 1.2em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #d5d5d5;
+}
+
+.operator {
+    background-color: #007bff;
+    color: white;
+}
+
+.operator:hover {
+    background-color: #0056b3;
+}
+
+#clear {
+    grid-column: span 4;
+    background-color: #f44336;
+    color: white;
+}
+
+#clear:hover {
+    background-color: #d32f2f;
+}
+
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem eveniet voluptatibus pariatur facere et? Unde reprehenderit iure ex velit possimus dignissimos quos, veritatis facilis aut soluta voluptate quisquam nulla consectetur?</p>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+    <p id="demo7"></p>
+    <p id="demo8"></p>
+    <button onclick="document.getElementById('demo8').innerHTML=Date()"> this is date</button>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="button" data-value="7">7</button>
+            <button class="button" data-value="8">8</button>
+            <button class="button" data-value="9">9</button>
+            <button class="button operator" data-value="/">÷</button>
+            <button class="button" data-value="4">4</button>
+            <button class="button" data-value="5">5</button>
+            <button class="button" data-value="6">6</button>
+            <button class="button operator" data-value="*">×</button>
+            <button class="button" data-value="1">1</button>
+            <button class="button" data-value="2">2</button>
+            <button class="button" data-value="3">3</button>
+            <button class="button operator" data-value="-">−</button>
+            <button class="button" data-value="0">0</button>
+            <button class="button" data-value=".">.</button>
+            <button class="button operator" data-value="=">=</button>
+            <button class="button operator" data-value="+">+</button>
+            <button class="button" id="clear">C</button>
+        </div>
+    </div>
+</body>
+<script>
+function myfunction(p1,p2){
+    return p1 * p2;
+
+}
+let result = myfunction(4,100);
+document.getElementById("demo").innerHTML= result;
+
+function myfunction2(p3,p4){
+    return p3 +p4;
+}
+let result2 = myfunction2(33,44);
+document.getElementById("demo2").innerHTML=result2;
+
+function myfunction3(p5,p6){
+    return p5/p6;
+}
+let result3 = myfunction3(22,3);
+document.getElementById("demo3").innerHTML=result3;
+ 
+function toCelsius(f){
+    return (5/9)*(f-32);
+}
+let result4 = toCelsius(55);
+document.getElementById("demo4").innerHTML=result4;
+
+function toCelsius(f){
+    return (5/9)*(f-32);
+}
+let result5 = toCelsius;
+document.getElementById("demo5").innerHTML=result5;
+
+ let car = "lembo";
+ document.getElementById("demo6").innerHTML = "car:" + car;
+
+ function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+const myFather= new Person( "john", "arya", 58, "red");
+const myMother = new Person("veena","kumari", 45, "blue");
+document.getElementById("demo").innerHTML= "my father is " +  myFather.age + "." + "my mothe name is"  +  myMother.firstName + myMother.lastName +".";
+document.addEventListener('DOMContentLoaded', function() {
+    const display = document.getElementById('display');
+    const buttons = document.querySelectorAll('.button');
+    let currentInput = '';
+    let firstOperand = null;
+    let operator = null;
+    let resetDisplay = false;
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            const value = this.getAttribute('data-value');
+
+            if (value === 'C') {
+                // Clear the display
+                currentInput = '';
+                firstOperand = null;
+                operator = null;
+                resetDisplay = false;
+                updateDisplay('0');
+            } else if (value === '=') {
+                // Perform calculation
+                if (firstOperand !== null && operator !== null) {
+                    currentInput = calculate(firstOperand, parseFloat(currentInput), operator).toString();
+                    updateDisplay(currentInput);
+                    firstOperand = null;
+                    operator = null;
+                    resetDisplay = true;
+                }
+            } else if (this.classList.contains('operator')) {
+                // Handle operators
+                if (operator === null) {
+                    firstOperand = parseFloat(currentInput);
+                } else if (firstOperand !== null && !resetDisplay) {
+                    firstOperand = calculate(firstOperand, parseFloat(currentInput), operator);
+                    updateDisplay(firstOperand.toString());
+                }
+                operator = value;
+                resetDisplay = true;
+            } else {
+                // Handle numbers and decimal point
+                if (resetDisplay) {
+                    currentInput = value;
+                    resetDisplay = false;
+                } else {
+                    currentInput += value;
+                }
+                updateDisplay(currentInput);
+            }
+        });
+    });
+
+    function updateDisplay(value) {
+        display.textContent = value;
+    }
+
+    function calculate(a, b, operator) {
+        switch (operator) {
+            case '+':
+                return a + b;
+            case '-':
+                return a - b;
+            case '*':
+                return a * b;
+            case '/':
+                return a / b;
+            default:
+                return b;
+        }
+    }
+});
+
+ </script>
+</html>

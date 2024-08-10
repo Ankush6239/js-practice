@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <input type="text" id="amount">
+     <button onclick="discount()"> what discount of amount</button>
+     <input type="text" id="afterdiscount">
+</body>
+<script>
+    function discount(){
+     var discountamount = parseFloat(document.getElementById("amount").value); 
+     var discountprice;
+     if(discountamount <= 200){
+        discountprice = discountamount * 0.20;
+     }else{
+        discountprice = "No discount";
+     }
+     document.getElementById("afterdiscount").value = discountprice;
+    }
+</script>
+</html> 

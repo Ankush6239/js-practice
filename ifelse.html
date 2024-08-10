@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" id="in">
+    <input type="text"  id="in2">
+    <input type="text" id="in3">
+    <button onclick="sub()">calcu</button>
+    <p id="demo"></p>
+</body>
+<script>
+    
+    function sub() {   
+        let an= parseInt(document.getElementById("in").value);
+        let an2 = document.getElementById("in2").value.trim().toLowerCase();
+        let an3= parseInt(document.getElementById("in3").value);
+        let result;
+        // let ank;
+      
+    if(an2 === "plus"){
+        let  plus= an + an3;
+         result = plus;
+    }else if(an2==="min"){
+        let min = an- an3;
+        result = min;
+    }else if(an2==="div"){
+       let div = an / an3;
+       result = div;
+    }
+    else{
+        console.log("not equal")
+    }
+    document.getElementById("demo").innerHTML= result;
+}
+
+</script>
+</html>
