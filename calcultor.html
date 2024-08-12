@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: "Helvetica Neue", sans-serif;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #8bc6ec;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        background: #000000;
+        padding: 25px;
+        width: 350px;
+        border-radius: 10px;
+    }
+
+    .calc-text {
+        margin-bottom: 20px;
+        padding-left: 5px;
+    }
+
+    .calc-text p {
+        width: 100%;
+        font-size: 3.5rem;
+        text-align: end;
+        background: transparent;
+        color: #fff;
+        border: none;
+        outline: none;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+    button {
+        background: #333333;
+        color: #fff;
+        font-size: 1.5rem;
+        border: none;
+        border-radius: 70%;
+        cursor: pointer;
+        height: 65px;
+        width: 65px;
+    }
+
+    button:active,
+    button:focus {
+        filter: brightness(120%);
+    }
+
+    .calc-keys {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-row-gap: 15px;
+        grid-column-gap: 10px;
+    }
+
+    .key-zero {
+        grid-column: span 2;
+        width: 100%;
+        border-radius: 30px;
+    }
+
+    .key-operate {
+        background: #ff9501;
+    }
+
+    .key-others {
+        background: #a6a6a6;
+        color: #000000;
+    }
+    #btn{
+        color: #a6a6a6;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="calc-text">
+            <p id="user-input">0</p>
+            <div class="calc-keys">
+                <button type="button" class="key-others operations" onclick="clearInput()">AC</button>
+                <button type="button" class="key-others operations" onclick="deleteLast()">DEL</button>
+                <button type="button" class="key-others operations" onclick="handleOperator('%')">%</button>
+                <button type="button" class="key-operate operations" onclick="handleOperator('/')">/</button>
+                <button type="button" class="numbers" onclick="handleClick('7')">7</button>
+                <button type="button" class="numbers" onclick="handleClick('8')">8</button>
+                <button type="button" class="numbers" onclick="handleClick('9')">9</button>
+                <button type="button" class="key-operate operations" onclick="handleOperator('*')">*</button>
+                <button type="button" class="numbers" onclick="handleClick('4')">4</button>
+                <button type="button" class="numbers" onclick="handleClick('5')">5</button>
+                <button type="button" class="numbers" onclick="handleClick('6')">6</button>
+                <button type="button" class="key-operate operations" onclick="handleOperator('-')">-</button>
+                <button type="button" class="numbers" onclick="handleClick('1')">1</button>
+                <button type="button" class="numbers" onclick="handleClick('2')">2</button>
+                <button type="button" class="numbers" onclick="handleClick('3')">3</button>
+                <button type="button" class="key-operate operations" onclick="handleOperator('+')">+</button>
+                <button type="button" class="key-zero numbers" onclick="handleClick('0')">0</button>
+                <button type="button" class="numbers" onclick="handleClick('.')">.</button>
+                <button type="button" class="key-operate operations" onclick="calculate()">=</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<p > <ul id="history"></ul></p>
+<div id="btn" ><button onclick="history()"> history </button>
+</body>
+<script>
+let num1 = "";
+let num2 = "";
+let operator = "";
+let resultDisplayed = false;
+
+function handleClick(value) {
+    const display = document.getElementById("user-input");
+
+    if (resultDisplayed) {
+        display.innerHTML = "";
+        resultDisplayed = false;
+    }
+
+    if (operator && !num2) {
+        display.innerHTML = "";
+    }
+
+    display.innerHTML += value;
+
+    if (!operator) {
+        num1 = display.innerHTML;
+    } else {
+        num2 = display.innerHTML;
+    }
+}
+
+function handleOperator(value) {
+    operator = value;
+}
+
+function calculate() {
+    let result;
+    switch (operator) {
+        case "+":
+            result = parseFloat(num1) + parseFloat(num2);
+            break;
+        case "-":
+            result = parseFloat(num1) - parseFloat(num2);
+            break;
+        case "*":
+            result = parseFloat(num1) * parseFloat(num2);
+            break;
+        case "/":
+            result = parseFloat(num1) / parseFloat(num2);
+            break;
+        case "%":
+            result = parseFloat(num1) % parseFloat(num2);
+            break;
+        default:
+            result = "Error";
+    }
+
+    document.getElementById("user-input").innerHTML = result;
+    num1 = result;
+    num2 = "";
+    operator = "";
+    resultDisplayed = true;
+
+    // Store the result in localStorage
+    storeResult(result);
+}
+
+function clearInput() {
+    document.getElementById("user-input").innerHTML = "0";
+    num1 = "";
+    num2 = "";
+    operator = "";
+}
+
+function deleteLast() {
+    const display = document.getElementById("user-input");
+    display.innerHTML = display.innerHTML.slice(0, -1);
+    if (display.innerHTML === "") {
+        display.innerHTML = "0";
+    }
+
+    if (!operator) {
+        num1 = display.innerHTML;
+    } else {
+        num2 = display.innerHTML;
+    }
+}
+
+function storeResult(result) {
+    let itemsArray = JSON.parse(localStorage.getItem('items')) || [];
+    itemsArray.push(result);
+    localStorage.setItem('items', JSON.stringify(itemsArray));
+}
+
+function clearLocalStorage() {
+    localStorage.clear();
+}
+let num = document.getElementById("user-input").vlue;
+// let num1s= document.getElementById("handlclick()").value;
+localStorage.setItem('user-input', JSON.stringify(num)); 
+
+function history() {
+    let result = window.localStorage.getItem('items');
+    let text = result ? result.toString() : ''; // handle null or undefined result
+    document.getElementById("history").innerHTML = text;
+    console.log(text);
+    
+}
+function history() {
+    let result = window.localStorage.getItem('items');
+    let text = result; // handle null or undefined result
+    document.getElementById("history").innerHTML= text;
+    console.log(text);
+    
+}
+var jsondata= [];
+function handlclick(){
+    jsondata.push(JSON.parse(localStorage.getItem('user-input')));
+    jsondata.map((data)=>{
+        let li = document.createElement('li');
+        li.textContent= data.someProperty;
+        document.getElementById('history').appendChild(li);
+    });
+}
+// fetch('./json/data.json')
+//   .then(response => response.json())
+//   .then(data => {
+//     function history() {
+//     let result = window.localStorage.getItem('items');
+//     let text = result ? result.toString() : ''; // handle null or undefined result
+//     document.getElementById("history").innerHTML = text;
+//     console.log(text);
+    
+// }
+//     // console.log(data);
+//     // let result = window.localStorage.getItem('items');
+//     // let text = result ? result.toString() : ''; // handle null or undefined result
+//     // document.getElementById("history").innerHTML = text;
+//     // let data = text;
+//     console.log(); // The JSON data is available here
+//   })
+//   .catch(error => console.error('Error loading JSON:', error));
+
+// );
+</script>
+</html>
