@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        
+                <p id="demo"></p>
+<p id="demo2"></p>
+</body>
+<script>
+//     Looping Array Elements
+
+// One way to loop through an array, is using a for loop:
+    const obj = ["car", "bus", "bike", "train" ];
+    let fln = obj.length;
+    let text = "<ul>";
+    for(let i=0; i<fln; i++){
+      text += "<li>" + obj [i] + "</li>"
+    }
+    text += "</ul>";
+    document.getElementById("demo").innerHTML= text;
+
+    // You can also use the Array.forEach() function:
+
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    let text1 ="<ul>";
+    fruits.forEach(Myfunction);
+    text1 += "</ul>"
+    document.getElementById("demo2").innerHTML= text;
+   function Myfunction(value){
+    text += "<li>" + value + "</li>";
+   }
+</script>
+</html>

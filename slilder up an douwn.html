@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #btn{
+        margin: auto;
+        border:  2px soli black;
+        background-color: lightcyan;
+     
+    }
+    #div{
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+        position: absolute;
+    }
+    
+</style>
+<body>
+    <p id="btn"> click to slide</p>
+    <p id="body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde qui optio quaerat assumenda ullam placeat! Eaque
+        nobis eveniet, esse voluptas beatae culpa dolor adipisci eos dolorum illo, ducimus alias voluptatum doloremque,
+        natus consequatur voluptate sint amet veniam tempore reprehenderit recusandae accusantium consequuntur animi. Ab
+        optio repellat maiores ad porro non minus deserunt adipisci. Similique laborum molestiae, distinctio, eaque
+        architecto, harum sint explicabo voluptatum non vel dolorem. Quasi minima, reprehenderit labore voluptate nulla
+        non nesciunt commodi natus ipsam eius facere recusandae enim adipisci rerum incidunt laudantium! Fugiat quis
+        tempore autem! Voluptas, a sunt earum fugiat ullam eveniet libero atque omnis animi reiciendis laboriosam hic
+        perspiciatis eum explicabo eligendi natus facilis, dolores possimus harum quia officiis! Deleniti inventore
+        animi voluptas veniam expedita laboriosam tempora porro doloremque voluptatem quam quaerat blanditiis similique,
+        distinctio non id amet odit ipsum minima earum! Distinctio commodi deserunt eligendi porro! Veritatis qui
+        accusamus voluptatibus aspernatur sapiente? Optio architecto fugit ratione sed id, iste adipisci ullam?
+        Repudiandae, qui! Consequuntur debitis tempore suscipit maxime voluptatibus nostrum. Repellat fugiat nulla
+        facere doloribus? Veritatis magni, quidem mollitia ab accusantium, nemo earum quisquam fugiat perferendis
+        assumenda officiis consequatur asperiores corrupti, quod autem itaque excepturi! Non fuga consequatur harum
+        inventore voluptates vel modi adipisci veniam nulla, magnam, deserunt, esse reiciendis eius sapiente libero
+        delectus rerum quae quas totam veritatis debitis quos accusamus omnis. Tempora deserunt pariatur necessitatibus
+        earum quas quaerat odio dolores, rem consectetur officia possimus ipsam fuga quam repellendus dolore delectus
+        libero voluptas voluptates sint eos! Et enim laudantium dicta illum. Consectetur sapiente perferendis officiis
+        porro amet minus, rem voluptatem nihil dolores delectus saepe totam illo quasi laborum, laudantium veniam non
+        commodi numquam ratione voluptatibus sit, corporis optio? Cum hic fugit facere neque. Consectetur voluptatem
+        ratione nemo quaerat provident nam in dicta nulla aspernatur blanditiis. Sunt corrupti animi harum cupiditate
+        rem molestias dolor impedit tenetur magni porro pariatur, quam qui tempore nostrum unde ullam ipsa voluptatibus
+        architecto at corporis natus odio neque reprehenderit facilis! Explicabo dignissimos vero nostrum similique
+        quaerat ipsa ab provident cum id mollitia aliquam voluptatibus, vitae iste atque reiciendis debitis iusto
+        eligendi suscipit rerum placeat adipisci consequatur hic, deserunt magnam! Laudantium, nisi magnam magni nemo
+        repellendus incidunt perferendis? Eos, repudiandae eveniet vel fugiat veritatis esse aspernatur dignissimos in
+        excepturi culpa. Praesentium blanditiis, placeat iste eius culpa a commodi explicabo maxime, exercitationem
+        iusto similique fuga alias molestiae, nihil odit tempore aperiam necessitatibus earum natus adipisci aliquam
+        corporis debitis? Natus, ducimus fugit.
+    </p>
+    <div id="div">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, dolorem.</div>
+   <!-- use of ajax  -->
+  <div class="ajax">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum delectus nam fuga, voluptatibus quaerat laboriosam voluptatum saepe, sapiente dolor amet, architecto velit impedit reiciendis soluta nesciunt vitae! Temporibus, eum tempora?</p>
+    <button class="ajax_a">ajax demo</button>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#btn").click(function(){
+        $("#body").slideToggle(3000);
+        })
+    });
+    $(document).ready(function(){
+    $("#btn").click(function(){
+        $("#div").animate({left: '300px'},3000);
+    });
+});
+
+</script>
+</html>

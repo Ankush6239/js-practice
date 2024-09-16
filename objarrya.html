@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="num"></p>
+    <table>
+        <th> hello</th>
+            <tr id="tbcol">
+
+            </tr>
+       
+    </table>
+    <p id="p"></p>
+    <p id="name"></p>
+    <!-- Nested Arrays and Objects -->
+</body>
+<script>
+   const myObj = {
+  name: "John",
+  age: 30,
+  cars: [
+    {name:"Ford", models:["Fiesta", "Focus", "Mustang"]},
+    {name:"BMW", models:["320", "X3", "X5"]},
+    {name:"Fiat", models:["500", "Panda"]}
+  ]
+} 
+let x = "";
+for( let i in myObj.cars){
+    x += "<h2>" + myObj.cars[i].name + "</h2>"
+    for(let j in myObj.cars[i].models){
+        x += "<h3>" + myObj.cars[i].models[j] + "</h3>"
+    }
+}
+document.getElementById("demo").innerHTML= x ;
+
+const abc = {
+    name : "ankush",
+    age : 30,
+    city : "pathankot"
+}
+let v = "";
+for(let i in abc){
+    v += "<ul><li>" + abc[i] + "</li></ul>"
+}
+document.getElementById("demo1").innerHTML= v;
+
+
+const table = {
+    "cola": 23,
+    "colb": 45,
+    "colc": 33,
+    "cold": 43,
+}
+let tableHtml = "";
+for(let i in table){
+    tableHtml += "<td>"+table[i]+ "</td>"
+}
+document.getElementById("tbcol").innerHTML=tableHtml;
+
+const number = [45, 9, 8, 10, 15]
+let text = ""
+number.forEach(functiona);
+document.getElementById("p").innerHTML=text;
+function functiona(value){
+    text +="<td>,"+ value + "</td>";
+}
+
+const number1 =[22,23,24,25,26]
+const number2 = number1.map(functionb);
+function functionb(value,index,array){
+    return value * 2;
+}
+document.getElementById("num").innerHTML= number2;
+
+const nam = [
+    {"fullName": "Ankush Arya", "age":40}
+]
+const nam1 = nam.map( function fullName(person){
+    return person.fullName + " age is  " + person.age; 
+});
+document.getElementById("name").innerHTML=nam1.join("<br>");
+
+const d = document.getElementById("input").value;
+const d1 = d.map(num =>{
+return num/10;
+});
+
+console.log(d1);
+</script>
+</html>

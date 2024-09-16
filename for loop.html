@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #contact_us {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.form-row .col {
+    flex: 1;
+    padding: 0 10px;
+    min-width: 250px;
+}
+
+.form-row .col-full {
+    width: 100%;
+    padding: 0 10px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 150px;
+}
+
+input[type="file"] {
+    padding: 8px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+.required {
+    color: red;
+}
+
+#submit {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#submit:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+
+    .col {
+        margin-bottom: 10px;
+    }
+}
+</style>
+<body>
+    <div id="contact_us">
+        <div class="form-row">
+            <div class="col">
+                <label for="name">Your Name</label>
+                [text text-782 id:name placeholder "Your Name"]
+            </div>
+            <div class="col">
+                 <label for="email">E-mail<span class="required">*</span></label>
+                [email* email-736 id:email placeholder "E-mail"]
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="subject">Subjects</label>
+                [select menu-59 id:subject "Subject1" "Subject2"]
+            </div>
+            <div class="col">
+                <label for="phone">Phone</label>
+                [phonetext phonetext-985 numberonly id:phone placeholder "9876543210"]
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="date">Date</label>
+                [date date-609 id:date]
+            </div>
+            <div class="col">
+                <label for="file">File Upload</label>
+                [file file-922 limit:10485760 id:file]
+        <p style="font-size:10px;">Click or drag a file to this area to upload
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-full">
+                <label for="msg">Write Assignment Description</label>
+                [textarea textarea-874 id:msg placeholder "Your Message"]
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-full">
+                [submit "Submit" id:submit]
+            </div>
+        </div>
+        </div>
+</body>
+
+</html>

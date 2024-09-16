@@ -85,6 +85,9 @@
     #btn{
         color: #a6a6a6;
     }
+    #history{
+    
+    }
 </style>
 <body>
     <div class="container">
@@ -215,29 +218,67 @@ let num = document.getElementById("user-input").vlue;
 // let num1s= document.getElementById("handlclick()").value;
 localStorage.setItem('user-input', JSON.stringify(num)); 
 
-function history() {
-    let result = window.localStorage.getItem('items');
-    let text = result ? result.toString() : ''; // handle null or undefined result
-    document.getElementById("history").innerHTML = text;
-    console.log(text);
+// function history() {
+//     let result = window.localStorage.getItem('items');
+//     let text = result ? result.toString() : ''; // handle null or undefined result
+//     document.getElementById("history").innerHTML = text;
     
-}
+// }
 function history() {
+    // let result = window.localStorage.getItem('items');
+    // let text = result; // handle null or undefined result
+    // document.getElementById("history").innerHTML= text;
     let result = window.localStorage.getItem('items');
-    let text = result; // handle null or undefined result
-    document.getElementById("history").innerHTML= text;
-    console.log(text);
-    
+    console.log(result)
+    let text = JSON.parse(result); // handle null or undefined result
+    console.log(text)
+    var dataObject = {};
+    text.forEach(function(value, index) {
+            dataObject[index] = value;
+        });
+        var objectDataElement = document.getElementById('history');
+        console.log(dataObject)
+
+        for (var key in dataObject) {
+            if (dataObject.hasOwnProperty(key)) {
+                var li = document.createElement('li');
+                li.textContent = `Key ${key}: ${dataObject[key]}`;
+                objectDataElement.appendChild(li);
+            }
+        }
+    // [result].map((data)=>{
+    //     console.log(data,"data main")
+    //     let li = document.createElement('li');
+    //     li.textContent= data.someProperty;
+    //     document.getElementById('history').appendChild(li);
+    // document.getElementById("history").innerHTML= text;
+    // })
 }
 var jsondata= [];
 function handlclick(){
     jsondata.push(JSON.parse(localStorage.getItem('user-input')));
+    
     jsondata.map((data)=>{
+        console.log(data,"data main")
         let li = document.createElement('li');
         li.textContent= data.someProperty;
         document.getElementById('history').appendChild(li);
     });
 }
+// var jsondata = [];
+
+// function handlclick() {
+//   const userInput = localStorage.getItem('user-input');
+//   if (userInput) {
+//     const data = JSON.parse(userInput);
+//     if (!jsondata.includes(data)) {
+//       jsondata.push(data);
+//       const li = document.createElement('li');
+//       li.textContent = data.someProperty;
+//       document.getElementById('history').appendChild(li);
+//     }
+//   }
+// }
 // fetch('./json/data.json')
 //   .then(response => response.json())
 //   .then(data => {

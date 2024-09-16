@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">hide btn</button>
+    <button id="btn2">Hide btn2</button>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae eligendi repellat, culpa magnam delectus alias quae animi natus repudiandae error nihil illum omnis aliquam ipsam labore vitae corrupti nesciunt accusamus.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus tempora fugit rerum recusandae maxime sed dolores exercitationem amet reiciendis voluptates quasi, quaerat animi impedit quas quisquam consequatur nisi aperiam tempore.</p>
+    <button id="btn3">Hide First Child of list</button>
+    <ul>
+        <li>hide </li>
+        <li>show</li>
+        <li>toggle</li>
+    </ul>
+    <ul>
+        <li>hide1</li>
+        <li>Hide2</li>
+        <li>Hide3</li>
+        <li>Hide4</li>
+    </ul>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        $('#btn').click(function(){
+            $("p").toggle();
+        })
+    });
+$(document).ready(function(){
+$('#btn2').click(function(){
+    $('p:first').hide();
+});
+});
+$(document).ready(function(){
+    $('#btn3').click(function(){
+        $('ul li:nth-child(2)').hide();
+    });
+});
+</script>
+</html>

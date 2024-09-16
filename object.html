@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <p id="demo"></p>
+ <p id="demo1"></p>
+ <p id="demo2"></p>
+    <!-- <form action="">
+        <label for=""> Opation</label>
+        <select name="" id="demo">
+            <option id="demo2">   </option>
+        </select>
+    </form> -->
+</body>
+<script>
+    // const person ={
+    //     Name :"Ankush",
+    //     City:"Pathankot", 
+    //     Age: 30,
+    //     Roll: "developer",
+    // }
+    // let text = "";
+    // for(let x in person){
+    //     text += person[x] + " ";
+    // };
+    // document.getElementById("demo").innerHTML= text; 
+    // const Array = Object.values(person);
+    // document.getElementById("demo").innerHTML=Array;
+    // const fruits = {
+    //     Apples:500,
+    //     Banana: 300,
+    //     orange: 200,
+    // }
+    // let text = "";
+    // for (let [fruit,amount] of Object.entries(fruits)){
+    //   text += fruit +" :" + amount + "<br>";
+    // }
+    // document.getElementById("demo").innerHTML=text;
+    
+    // const clothes = {
+    //     shirt : 300,
+    //     pant: 700,
+    //     fullDress: 1000,
+    //  }
+    //  let text ="";
+    //  for(let[cloth,amount] of Object.entries(clothes)){
+    //     text += cloth + ":" + amount + "<br>";
+    //  }
+    //  document.getElementById("demo").innerHTML=text;
+    
+//     const phone = {
+//         Samsung : 10000,
+//         Mi : 20000,
+//         Iphone : 40000,
+//     }
+//     let text = " "
+//    for (let [mobile, value] of Object.entries(phone)){
+//     text += mobile + " : " + value + " <br>";
+//    } 
+//    document.getElementById("demo").innerHTML=text;
+ 
+//  const option= {
+//     opation1 :"opation1",
+//     opation2 :"opation2",
+//     opation3 : "opation3"
+//  }
+//  let opt = "";
+//  for(let [optio, value] of Object.entries(option)){
+//     opt += optio +" :" + value + "<br>";
+//  }
+//  document.getElementById("demo2").innerHTML=opt;
+// function person (first, last , age , eyecolor){
+//     this.firstName = first;
+//     this.lastName = last;
+//     this.age = age;
+//     this.eyecolor = eyecolor;
+// }
+//  const myfather = new person("Raj", "Kumar", 50, "black");
+//  document.getElementById("demo").innerHTML= "my father nation is " + myfather.nationality ;
+// person.prototype.nationality = "English";
+
+//  const myMother = new person("veena", "kumari", 42, "blue");
+//  document.getElementById("demo1").innerHTML= "my mother name is " + myMother.firstName + ".";
+//  document.getElementById("demo2").innerHTML= "my mother age is " + myMother.age + ".";
+
+
+// Constructor Function Methods
+// A constructor function can also have methods:
+
+// function person(first, last, age, ){
+//     this.firstName = first;
+//     this.lastName = last;
+//     this.age = age;
+//     this.fullName = function(){
+//         return this.firstName + " " + this.lastName 
+//     } 
+// }
+//  const myfather = new person ("Raj","kumar", 50);
+//  document.getElementById("demo").innerHTML = "my father name is " + myfather.fullName(); 
+ 
+// function person(first, last, age){
+//     this.firstName = first;
+//     this.lastName = last;
+//     this.age = age;
+//     this.fullName = function(){
+//     return this.firstName + " " + this.lastName;
+//     }
+// }
+// const mymother =  new person( "veena", "Kumari", 50 );
+// document.getElementById("demo2").innerHTML = "my mother name is " + mymother.fullName();  
+
+// function person (first, last, age){
+//     this.firstName = first;
+//     this.lastName = last;
+//     this.age = age;
+//     this.fullName = function(){
+//         return this.firstName + " " + this.lastName;
+//     };
+//     // console.log(anshu);
+// }
+
+// const mybro = new person ("anshu", "arya", 20);
+// document.getElementById("demo2").innerHTML= "my bro name is "+ mybro.fullName();
+
+// Adding a Method to an Object
+
+// Adding a method to a created object is easy: 
+
+ function person( first, last, age){
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+ }
+ const mymother = new person ("veena", "devi", 40);
+
+ mymother.changeName = function(name){
+    this.lastName = name;
+ }
+ mymother.changeName("kumari");
+ document.getElementById("demo").innerHTML = "my mother name is " + mymother.lastName;
+
+
+
+ function person (first, last, age){
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+ }
+ const myfather = new person("raj", "singh", 30);
+ myfather.changeName = function(name){
+    this.lastName = name;
+ }
+ myfather.changeName("Kumar");
+ document.getElementById("demo2").innerHTML = "my father last name  is " + myfather.lastName;
+ </script>
+
+</html>

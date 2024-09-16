@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="ajax"> ajax hello</button>
+    <h2 id="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, velit!</h2>
+    <button class="ajax2">Ajax2</button>
+    <p class="lorem2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut eum voluptatem quos suscipit. Architecto et quidem at repellat aliquid magni officiis laborum, neque voluptatum repellendus. Iure repellendus ullam error rerum!</p>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.ajax').click(function(){
+          $("#lorem").load("demo_test.txt");
+        });
+    });
+    $(document).ready(function(){
+        $('.ajax2').click(function(){{
+            $(".lorem2").load("demo_text.txt", function(responseText, textStatu, xhr){
+                if(textStatu === "success"){
+                    alert('text is working');
+                }if(textStatu ==="error"){
+                    alert('text is not working');
+                }
+            });
+        }});
+    });
+</script>
+</html>
